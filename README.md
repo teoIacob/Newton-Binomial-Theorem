@@ -3,9 +3,8 @@
 This is a website made using pure **html**, **css** and using the **mathjs** package from **node.js**. It it a calculator that solves expressions like ``(a+b)^n``.
 
 ## THE FORMULA
-```
-(x+y)^n^C~n~^0^*x^n^+C~n~^1^*x^n-1^*y+C~n~^2^*x^n-2^*y^2^+...+C~n~^n^*y^n^
-```
+<div style="background-color:white; width:fit-content; padding: 20px;"><img src="src/image.png"></div>
+
 
 ## USES
 The website can be used to verify results of expressions regarding **Newton's Binomial Theorem**.
@@ -17,4 +16,4 @@ To use the package in a web app you will need to include
 ```
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"></script>
 ```
-in the **head** of the document.
+in the **head** of the document. You can find the full documentation for **mathjs** [here](https://mathjs.org/).
