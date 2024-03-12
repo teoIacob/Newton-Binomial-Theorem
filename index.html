@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Binomul lui NEWTON</title>
+  <!-- Include Math.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"></script>
+</head>
+<body>
+  <h1>Binomul lui Newton</h1>
+
+  <main>
+    <div id="result"></div>
+
+    <section id="inputContainer">
+      <input type="text" placeholder="a" id="inputA" class="inputData">
+      <input type="text" placeholder="b" id="inputB" class="inputData">
+      <input type="text" placeholder="n" id="inputN" class="inputData">
+    </section>
+
+    <button id="btn">Calculeaza</button>
+  </main>
+
+  <script>
+    const div = document.getElementById('result');
+    const btn = document.getElementById('btn');
+    const num = new Array(3);
+
+    function factorial(x) {
+      if (x > 0)
+        return x * factorial(x - 1);
+      else
+        return 1;
+    }
+
+    function combinare(n, k) {
+      return factorial(n) / (factorial(k) * factorial(n - k));
+    }
+
+    function putere(a, b) {
+      if (typeof a === 'string')
+        return `${a}^${b}`;
+      if (typeof a === 'number') {
+        if (b > 0)
+          return a * putere(a, b - 1);
+        else
+          return 1;
+      }
+    }
+
+    btn.addEventListener('click', function () {
+      num[0] = document.getElementById('inputA').value;
+      num[1] = document.getElementById('inputB').value;
+      num[2] = document.getElementById('inputN').value;
+
+      let expression = '';
+      for (let i = 0; i <= num[2]; i++) {
+        expression += `+${combinare(num[2], i)}*${putere(num[0], num[2] - i)}*${putere(num[1], i)}`;
+      }
+
+      div.innerText = math.simplify(expression).toString();
+    });
+  </script>
+</body>
+</html>
